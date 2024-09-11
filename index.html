@@ -10,9 +10,9 @@
     <style>
         /* Styles pour la div */
         #myplot1, #myplot2 {
-            height: 200px;
-            width: 300px;
-            background-color: #b2e3f2;
+            height: 400px;
+            width: 650px;
+            background-color: #daeaef;
             /* Remplacez cette couleur par la couleur ou le graphique souhaité plus tard */
             font-family: Arial, sans-serif;
             font-weight: bold;
@@ -21,6 +21,10 @@
             margin: 0 15px;
             padding: 20px;
             border: 1px solid #7eebd3;
+        }
+        #myplot2{
+            height: 650px;
+            width: 1000px;
         }
     </style>
 </head>
@@ -50,7 +54,7 @@
             <figcaption>
                 <script>
                 async function faitAsync() {
-                    const penguinsresponse = await fetch('./penguins.json');
+                    const penguinsresponse = await fetch("./penguins.json");
                     const penguins = await penguinsresponse.json();
                 
                     const plot = Plot.dot(penguins, {
@@ -75,8 +79,37 @@
             Ceci est le graphique représentant la domination totale du Big Three de 2003 à 2023 sur les tournois du Grand Chelem.
         </p>
         <figure>
-            <figcaption>Domination du Big Three de 2003 à 2023 sur les tournois du Grand Chelem,
-                Nombre de victoires par tournoi du Grand Chelem et par joueur entre 2003 et 2023</figcaption>
+            <figcaption>
+                <script>
+            async function faitAsyncChelem() {
+            const response = await fetch("./grand-chelem.json");
+            const dataDomination = await response.json();
+            
+            const plot = Plot.plot({
+            color: { legend: true },
+            x: { label: "Tournois" },
+            marginLeft: 140,
+            height: 500,
+            title: "Domination du Big Three de 2003 à 2023 sur les tournoirs du Grand Chelem",
+            subtitle: "Nombre de victoires par tournoi du Grand Chelem et par joueur entre 2003 et 2023",
+            y: { label: "Vainqueur", grid: true },
+            r: { range: [0, 18] },
+            marks: [
+            Plot.dot(
+            dataDomination,
+            Plot.group(
+            { r: "count" },
+            { x: "TOURNAMENT", y: "WINNER", fill: "TOURNAMENT", tip: true, sort: { y: "r", reverse: true } }
+            )
+            )
+            ]
+            });
+            const div = document.querySelector("#myplot2");
+            div.append(plot);
+            }
+            faitAsyncChelem();
+            </script>
+        </figcaption>
         </figure>
         <div id="myplot2"></div>
     </section>
