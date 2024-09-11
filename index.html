@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page HTML avec Ancres et Styles</title>
+    <style>
+        /* Styles pour la div */
+        #div_graph {
+            height: 200px;
+            width: 300px;
+            text: #30433f;
+            background-color: #b2e3f2;
+            /* Remplacez cette couleur par la couleur ou le graphique souhaité plus tard */
+            border: 1px solid #7eebd3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Menu ancres -->
+    <nav>
+        <ul>
+            <li><a href="#penguins">Graphique des Pingouins</a></li>
+            <li><a href="#chelem">Graphique du Grand Chelem</a></li>
+        </ul>
+    </nav>
+
+    <!-- Pingouins -->
+    <section id="penguins">
+        <h2>Graphique des Pingouins</h2>
+        <p>
+            Voici un graphique représentant le nombre de pingouins présent sur les 3 îles Biscoe,
+            Dream et Torgersen en fonction du sexe qui a été déterminé lors des recherches scientifiques.
+        </p>
+        <figure>
+            <img src="image1.jpg" alt="Image 1">
+            <figcaption>Liste de la présence des Pingouins sur les 3 îles en fonction du sexe biologique</figcaption>
+        </figure>
+        <div id="div_graph"></div>
+    </section>
+
+    <!-- Grand Chelem -->
+    <section id="chelem">
+        <h2>Graphique du Grand Chelem</h2>
+        <p>
+            Ceci est le graphique représentant la domination totale du Big Three de 2003 à 2023 sur les tournois du Grand Chelem.
+        </p>
+        <figure>
+            <img src="image2.jpg" alt="Image 2">
+            <figcaption>Domination du Big Three de 2003 à 2023 sur les tournois du Grand Chelem,
+                Nombre de victoires par tournoi du Grand Chelem et par joueur entre 2003 et 2023</figcaption>
+        </figure>
+        <div id="div_graph"></div>
+    </section>
+</body>
+
+</html>
