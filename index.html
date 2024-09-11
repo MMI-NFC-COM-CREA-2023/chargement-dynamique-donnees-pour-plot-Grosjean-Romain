@@ -4,15 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page HTML avec Ancres et Styles</title>
+    <title>TP2</title>
     <style>
         /* Styles pour la div */
-        #div_graph {
+        #myplot1, #myplot2 {
             height: 200px;
             width: 300px;
-            text: #30433f;
             background-color: #b2e3f2;
             /* Remplacez cette couleur par la couleur ou le graphique souhaité plus tard */
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-decoration-color: #30433f;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 20px;
             border: 1px solid #7eebd3;
         }
     </style>
@@ -39,7 +44,7 @@
             <img src="image1.jpg" alt="Image 1">
             <figcaption>Liste de la présence des Pingouins sur les 3 îles en fonction du sexe biologique</figcaption>
         </figure>
-        <div id="div_graph"></div>
+        <div id="myplot1"></div>
     </section>
 
     <!-- Grand Chelem -->
@@ -53,7 +58,7 @@
             <figcaption>Domination du Big Three de 2003 à 2023 sur les tournois du Grand Chelem,
                 Nombre de victoires par tournoi du Grand Chelem et par joueur entre 2003 et 2023</figcaption>
         </figure>
-        <div id="div_graph"></div>
+        <div id="myplot2"></div>
     </section>
 </body>
 
