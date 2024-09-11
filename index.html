@@ -26,6 +26,7 @@
             height: 650px;
             width: 1000px;
         }
+
     </style>
 </head>
 
@@ -58,6 +59,8 @@
                     const penguins = await penguinsresponse.json();
                 
                     const plot = Plot.dot(penguins, {
+                        title: "Caractéristiques des Pingouins",
+                        subtitle: "Longueur et profondeur de nage des différents pingouins",
                         x: "culmen_length_mm",
                         y: "culmen_depth_mm",
                         fill: "species",
