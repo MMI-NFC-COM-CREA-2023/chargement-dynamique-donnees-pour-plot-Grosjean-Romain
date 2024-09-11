@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TP2</title>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
     <style>
         /* Styles pour la div */
         #myplot1, #myplot2 {
@@ -24,7 +26,7 @@
 </head>
 
 <body>
-
+<div>
     <!-- Menu ancres -->
     <nav>
         <ul>
@@ -32,6 +34,10 @@
             <li><a href="#chelem">Graphique du Grand Chelem</a></li>
         </ul>
     </nav>
+    <div>
+        <h1>Bienvenue sur le TP°2</h1>
+        <p>Utilisez le menu ci-dessus pour naviguer vers les différents graphiques.</p>
+    </div>
 
     <!-- Pingouins -->
     <section id="penguins">
@@ -41,8 +47,24 @@
             Dream et Torgersen en fonction du sexe qui a été déterminé lors des recherches scientifiques.
         </p>
         <figure>
-            <img src="image1.jpg" alt="Image 1">
-            <figcaption>Liste de la présence des Pingouins sur les 3 îles en fonction du sexe biologique</figcaption>
+            <figcaption>
+                <script type="module">
+
+                import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+
+                const penguinsresponse = await fetch('./penguins.json');
+                const penguins = await penguinsresponse.json();
+                console.log(penguins);
+
+                const plot = Plot.dot(penguins, {
+                    x: "culmen_length_mm",
+                    y: "culmen_depth_mm",
+                    stoke: "species",
+                }).plot()
+                const div = document.querySelector('#myplot1');
+                div.append(plot);        
+            </script>
+            </figcaption>
         </figure>
         <div id="myplot1"></div>
     </section>
@@ -54,12 +76,12 @@
             Ceci est le graphique représentant la domination totale du Big Three de 2003 à 2023 sur les tournois du Grand Chelem.
         </p>
         <figure>
-            <img src="image2.jpg" alt="Image 2">
             <figcaption>Domination du Big Three de 2003 à 2023 sur les tournois du Grand Chelem,
                 Nombre de victoires par tournoi du Grand Chelem et par joueur entre 2003 et 2023</figcaption>
         </figure>
         <div id="myplot2"></div>
     </section>
+    </div>
 </body>
 
 </html>
