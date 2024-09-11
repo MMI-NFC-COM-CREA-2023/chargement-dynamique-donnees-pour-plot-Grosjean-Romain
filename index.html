@@ -48,21 +48,20 @@
         </p>
         <figure>
             <figcaption>
-                <script type="module">
-
-                import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
-
-                const penguinsresponse = await fetch('./penguins.json');
-                const penguins = await penguinsresponse.json();
-                console.log(penguins);
-
-                const plot = Plot.dot(penguins, {
-                    x: "culmen_length_mm",
-                    y: "culmen_depth_mm",
-                    stoke: "species",
-                }).plot()
-                const div = document.querySelector('#myplot1');
-                div.append(plot);        
+                <script>
+                async function faitAsync() {
+                    const penguinsresponse = await fetch('./penguins.json');
+                    const penguins = await penguinsresponse.json();
+                
+                    const plot = Plot.dot(penguins, {
+                        x: "culmen_length_mm",
+                        y: "culmen_depth_mm",
+                        fill: "species",
+                    }).plot()
+                    const div = document.querySelector("#myplot1");
+                    div.append(plot);
+                }
+                faitAsync();
             </script>
             </figcaption>
         </figure>
